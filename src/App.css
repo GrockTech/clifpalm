@@ -1,0 +1,54 @@
+#movehero{
+    margin-top: 120px;
+}
+.uppermagin{
+     margin-top: 50px;
+     font-size: large;
+     
+     
+}
+
+#givespace{
+    width: 10%;
+    height: 40px;
+   
+}
+#getmagin{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.nav-link {
+    /* align-items: flex-end; */
+    /* text-align: right; */
+    color: teal;
+    font-weight: 400;
+}
+@keyframes appear{
+    from{
+        opacity: 0;
+        tranform: 0.5;
+    }to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+#view{
+    animation: appear 5s linear;
+    animation-timeline: view() ;
+    animation-range: entry cover 40%;
+}
+
+#form input {
+    display: flex;
+    /* align-items: flex-start; */
+    text-align: left;
+    justify-content: flex-start;
+    
+}
+#form label{
+    color:yellow;
+    text-align: left;
+    justify-content: flex-end;
+
+}
