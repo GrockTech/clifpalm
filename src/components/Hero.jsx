@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import HeroImage from "../heroimage.jpg";
 import image1 from "../assets/1.jpeg";
 // import image2 from '../assets/2.jpeg'
@@ -13,8 +13,39 @@ import Location from "./Location";
 import Management from "./Management";
 import CTA from "./CTA";
 import Footer from "./Footer";
+import { useState } from "react";
+import { useEffect } from "react";
+// import { useRef } from "react";
+// import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  // const navigate = useNavigate();
+  const typewriterRef = useRef(null);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setAnimate(false); // Reset
+        requestAnimationFrame(() => {
+          void typewriterRef.current.offsetWidth; // Reflow
+          setTimeout(() => setAnimate(true), 50); // Delay re-trigger
+        });
+      }
+    },
+    { threshold: 0.5 }
+  );
+
+  const element = typewriterRef.current;
+  if (element) observer.observe(element);
+
+  return () => {
+    if (element) observer.unobserve(element);
+  };
+}, []);
+
+
   return (
     <div
       className=" container text-white text-center mb-8 "
@@ -31,20 +62,27 @@ const Hero = () => {
           <div className="d-sm-flex align-items-center justify-content-between m">
             {/* Left Side: Text and Call to Action */}
             <div>
-              <h1>
+              <h1
+                ref={typewriterRef}
+                className={`typewriter ${animate ? "animate" : ""}`}
+              >
                 Your Logistics{" "}
-                <span className="text-warning"> & Growth Partner</span>
+                <span className="text-warning">& Growth Partner</span>
               </h1>
 
-              <p className="lead">
-                Clifplam Group — Driving Excellence Across Industries{" "}
+              <p className={`lead ${animate ? "animate-delay" : ""}`}>
+                Clifpalm Group — Driving Excellence Across Industries
               </p>
 
-
+              
               <button
-                data-bs-toggle="modal"
-                data-bs-target="#enroll"
-                className="btn bg-black text-white btn-lg my-2"
+                onClick={() => {
+                  const section = document.getElementById("service");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="btn bg-black text-white btn-lg my-2 hover-effect"
               >
                 Get Started
               </button>
@@ -65,7 +103,7 @@ const Hero = () => {
         <div className="block">
           <OtherP />
           <Autoslide />
-          <div className="container mt-26" id="service" >
+          <div className="container mt-26" id="service">
             <div>
               <h2 className="text-black "> Products</h2>
               <p className="text-center text-black">

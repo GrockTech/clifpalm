@@ -5,7 +5,7 @@ import ab from '../assets/business-colleagues-watching-content-laptop.jpg';
 
 const AboutP = () => {
   return (
-    <div>
+    <div className='' id='about'>
        <div className=" container text-white text-center mb-8 "
   style={{
     background: `url(${bg}) no-repeat center center`,

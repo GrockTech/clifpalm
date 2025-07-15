@@ -28,8 +28,9 @@ const Navbar = () => {
               <a className="nav-link active" aria-current="page" href="#home">
                 Home
               </a>
-              <a className="nav-link" href="#product">Products</a>
-              <a className="nav-link" href="#service">Services</a>
+              <a className="nav-link" href="#service">Products</a>
+              <a className="nav-link" href="#product">Services</a>
+             < a className="nav-link" href="#about">About</a>
               <a className="nav-link" href="#contactme">Contact</a>
               
             </div>
