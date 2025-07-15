@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-// import HeroImage from "../heroimage.jpg";
+import HeroImage from "../heroimage.jpg";
 import image1 from "../assets/1.jpeg";
 // import image2 from '../assets/2.jpeg'
 import image3 from "../assets/3.jpeg";
@@ -24,26 +24,27 @@ const Hero = () => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimate(false); // Reset
-          requestAnimationFrame(() => {
-            void typewriterRef.current.offsetWidth; // Reflow
-            setTimeout(() => setAnimate(true), 50); // Delay re-trigger
-          });
-        }
-      },
-      { threshold: 0.5 }
-    );
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setAnimate(false); // Reset
+        requestAnimationFrame(() => {
+          void typewriterRef.current.offsetWidth; // Reflow
+          setTimeout(() => setAnimate(true), 50); // Delay re-trigger
+        });
+      }
+    },
+    { threshold: 0.5 }
+  );
 
-    const element = typewriterRef.current;
-    if (element) observer.observe(element);
+  const element = typewriterRef.current;
+  if (element) observer.observe(element);
 
-    return () => {
-      if (element) observer.unobserve(element);
-    };
-  }, []);
+  return () => {
+    if (element) observer.unobserve(element);
+  };
+}, []);
+
 
   return (
     <div
@@ -55,22 +56,24 @@ const Hero = () => {
         height: "80vh",
       }}
     >
-      <section className="text-light py-5 text-center text-md-start" id="home">
-        <div id="movehero" className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-12 col-md-10 col-lg-8">
-              <h1
-                ref={typewriterRef}
-                className={`typewriter ${animate ? "animate" : ""}`}
-              >
-                Your Logistics{" "}
-                <span className="text-warning">& Growth Partner</span>
-              </h1>
+      <section className=" text-light p-5 text-center  text-sm-start" id="home">
+        <div id="movehero" className="container mt-n3">
+          {/* Flexbox for text and image side by side on medium+ screens */}
+          <div className="d-sm-flex ms-0 align-items-center justify-content-between">
+  <div className="mb-4 mb-sm-0"> {/* Adds bottom margin only on mobile */}
+    <h1 
+      ref={typewriterRef}
+      className={`typewriter ${animate ? "animate" : ""} mb-3`} 
+    >
+      Your Logistics{" "}
+      <span className="text-warning"> & <br/> Growth Partner</span>
+    </h1>
 
-              <p className={`lead ${animate ? "animate-delay" : ""}`}>
-                Clifpalm Group — Driving Excellence Across Industries
-              </p>
+    <p className={`lead ${animate ? "animate-delay" : ""} mt-3`}> {/* Adds spacing above paragraph */}
+      Clifpalm Group — Driving Excellence Across Industries
+    </p>
 
+              
               <button
                 onClick={() => {
                   const section = document.getElementById("service");
@@ -83,9 +86,20 @@ const Hero = () => {
                 Get Started
               </button>
             </div>
+
+            {/* Right Side: Hero Image, hidden on extra small screens */}
+            <img
+              className="img-fluid w-50 px-5 d-none d-sm-block"
+              src={HeroImage}
+              alt="Young person coding on a laptop"
+            />
           </div>
         </div>
       </section>
+      
+
+
+
 
       <div id="givespace"></div>
       <section className="container mt-4 ">
