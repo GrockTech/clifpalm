@@ -1,11 +1,13 @@
 import React from 'react';
 //mport Logo from '../components/logo.png'; // ✅ Ensure this path is correct
 //import Logo from './logo.png'
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Logo from '../../src/logo.png'
+import AdminLogin from './AdminLogin';
 const Navbar = () => {
   return (
     <div className=''>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+           <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div className="container-fluid">
           <a className="navbar-brand" href="#home">
             <img src={Logo} alt="Logo" width={100} />
@@ -23,20 +25,41 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup" >
-            <div className="navbar-nav text-white" id='navarrange'>
-              <a className="nav-link active" aria-current="page" href="#home">
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav text-white" id="navarrange">
+              {/* <a className="nav-link active" aria-current="page" href="/">
                 Home
+              </a> */}
+              <Link className="nav-link active" aria-current="page" to="/">
+  Home
+</Link>
+              <a className="nav-link" href="#service">
+                Products
               </a>
-              <a className="nav-link" href="#service">Products</a>
-              <a className="nav-link" href="#product">Services</a>
-             < a className="nav-link" href="#about">About</a>
-              <a className="nav-link" href="#contactme">Contact</a>
-              
+              <a className="nav-link" href="#product">
+                Services
+              </a>
+              <a className="nav-link" href="#about">
+                About
+              </a>
+              <a className="nav-link" href="#contactme">
+                Contact
+              </a>
+
+              {/* Use Link instead of <a> for React Router */}
+              <Link className="nav-link" to="/admin">
+                Admin
+              </Link>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Routes should be outside nav */}
+      {/* <Routes>
+        <Route path="/admin" element={<AdminLogin />} />
+      </Routes>
+    </Router> */}
     </div>
   );
 };

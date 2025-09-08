@@ -1,25 +1,30 @@
 import React from 'react'
-import sarfo from '../assets/sarfo.jpg'
+//import sarfo from '../assets/sarfo.jpg'
 import solo from '../assets/images.png'
+
+import ceo from '../assets/images/ceo.png'
+import sectary from '../assets/images/secreatary.png'
+
 
 const Management = () => {
     const teamMembers = [
   {
     name: 'Clifford Sarfo',
     title: 'Chief Executive Officer',
-    image: sarfo,
+    image: ceo,
   },
   {
+    name: 'Portia Nelson',
+    title: 'Secretary',
+    image: sectary,
+  },
+    {
     name: 'Frimpong Ohene Solomon',
     title: 'Lead Technician',
     image: solo,
   },
-  {
-    name: 'Mary Johnson',
-    title: 'Industrial Wiring Specialist',
-    image: '/images/mary.jpg',
-  },
-  // Add more as needed
+
+
 ];
 
   return (

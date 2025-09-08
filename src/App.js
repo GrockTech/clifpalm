@@ -1,25 +1,33 @@
-// index.js or App.js
+// App.js
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // includes Popper
-
-import logo from './logo.svg';
 import './App.css';
-import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import Navbar from '../src/components/Navbar';
 import HeroSection from '../src/components/Hero';
-// import OtherP from './components/OtherP';
-// import AboutP from './components/AboutP';
-
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminLogin from './components/AdminLogin';
+import Dashboardform from './components/Adminshipmentform';
+import ShipmentList from './components/ShipmentList';
 function App() {
   return (
     <div className="App container" id='animate'>
+      <Router>
+        {/* Navbar is shown on all pages */}
+        <Navbar />
 
-<Navbar/>
-<HeroSection/>
-{/* <OtherP/> */}
-{/* <AboutP/> */}
-         </div>
+        {/* Routes control what else shows */}
+        <Routes>
+          {/* Homepage */}
+          <Route path="/" element={<HeroSection />} />
+
+          {/* Admin login page */}
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/dashboard" element={<Dashboardform />} />
+          <Route path="/listshipments" element={<ShipmentList />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

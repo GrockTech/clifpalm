@@ -15,6 +15,9 @@ import CTA from "./CTA";
 import Footer from "./Footer";
 import { useState } from "react";
 import { useEffect } from "react";
+import Track from "./Track";
+import ShipmentMedia from "./Shipmentmedia";
+import Credibility from "./Credibility";
 // import { useRef } from "react";
 // import { useNavigate } from "react-router-dom";
 
@@ -102,7 +105,8 @@ const Hero = () => {
 
 
       <div id="givespace"></div>
-      <section className="container mt-4 ">
+                <Track/>
+             <section className="container mt-4 ">
         <div id="magin"></div>
         <div className="block">
           <OtherP />
@@ -136,9 +140,14 @@ const Hero = () => {
                   <img src={image5} alt="caterpillar" className="img-fluid" />
                 </div>
               </div>
+              {/* rmb exhcnage */}
+              
             </div>
           </div>
+                <ShipmentMedia/>
+   
           <AboutP />
+          <Credibility/>
           <Location />
           <Management />
           <CTA />

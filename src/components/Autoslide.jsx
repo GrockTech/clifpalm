@@ -7,6 +7,7 @@ import slide1 from "../assets/10.jpeg";
 import slide2 from "../assets/2.jpeg";
 import slide3 from "../assets/11783.jpg";
 import slide4 from "../assets/cctv-security-camera.jpg";
+//import ShipmentMedia from "./Shipmentmedia";
 
 const ImageSlider = () => {
   // Slide data array
@@ -101,6 +102,7 @@ const ImageSlider = () => {
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
       </button>
+    
     </div>
   );
 };
