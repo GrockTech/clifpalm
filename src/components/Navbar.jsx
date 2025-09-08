@@ -1,9 +1,9 @@
 import React from 'react';
 //mport Logo from '../components/logo.png'; // ✅ Ensure this path is correct
 //import Logo from './logo.png'
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as  Link } from "react-router-dom";
 import Logo from '../../src/logo.png'
-import AdminLogin from './AdminLogin';
+//import AdminLogin from './AdminLogin';
 const Navbar = () => {
   return (
     <div className=''>
